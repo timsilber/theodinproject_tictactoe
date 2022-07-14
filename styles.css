@@ -6,12 +6,19 @@ body{
 
 .container{
     display:grid;
-    grid-template-rows: repeat(3, minmax(100px, 1fr));
-    grid-template-columns:repeat(3, minmax(100px, 1fr));
+    grid-template-rows: repeat(3, minmax(200px, 1fr));
+    grid-template-columns:repeat(3, minmax(200px, 1fr));
 }
-
 .square{
     aspect-ratio: 1;
     border: 1px solid black;
     cursor: pointer;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.marker {
+    position: absolute;
+    font-size: 200px;
 }
