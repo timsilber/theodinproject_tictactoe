@@ -23,11 +23,11 @@ const Gameboard = (() => {
 
     const board = [...document.querySelector('.container').children]
 
-    const clickListener = (() => {
+    const clickListener = ((player) => {
         board.forEach(square => {
             square.addEventListener('click', (square) => {
-                makeMark(square, player1)
-                player1.addPlay(square);
+                makeMark(square, player)
+                player.addPlay(square);
              })
         })
     })
@@ -48,6 +48,28 @@ const Gameboard = (() => {
 
 const displayController = (() => {
 
+    const player1 = Player("tim", 1)
+    const player2 = Player("loser", 2)
+
+   const startGame = () => {
+        //input player names
+   }
+
+   const playRound = (player) => {
+        Gameboard.clickListener(player);
+        // player = player2
+   }
+
+    const gameOver = false
+
+    //const playGame = while (gameOver==false){
+        //player1 turn
+        //checkwin
+        //player2turn
+        //checkwin
+        //on win return gameOver==true
+    // }
+    
     const checkPlay = () => {
         //check if square is not played or remove event listener from square after play
     }
@@ -59,9 +81,15 @@ const displayController = (() => {
     const checkWin = () => {
       //check if three in a row
     }
-})();
+
+    return {startGame, gameOver, playRound}
+
+})(Gameboard);
 
 const player1 = Player("tim", 1)
 const player2 = Player("loser", 2)
 
-console.log(Gameboard.clickListener())
+displayController.playRound(player1)
+// setTimeout(10000)
+// displayController.playRound(player2)
+
